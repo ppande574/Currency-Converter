@@ -16,7 +16,6 @@ import java.util.Scanner;
 
 public class FileParser {
 	
-
 	public static HashMap<Integer, String> parseFile() {
 				
 		HashMap<Integer, String> currencyCodes = new HashMap<Integer, String>(); 
@@ -37,7 +36,7 @@ public class FileParser {
 				String num = tokens[0]; 
 				String currencyTag = tokens[1]; 
 				
-				int currencyRank = Integer.parseInt(currencyTag); 
+				int currencyRank = Integer.parseInt(num); 
 				
 				// Storing parsed data in HashMap: 
 				
