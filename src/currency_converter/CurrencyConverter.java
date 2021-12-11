@@ -71,6 +71,7 @@ public class CurrencyConverter {
 					System.out.println("Invalid input (nfe)");
 			    }
 				
+				System.out.println("Hello");
 				
 				/**
 				 * TODO: This is where the actual conversion functionality will go
