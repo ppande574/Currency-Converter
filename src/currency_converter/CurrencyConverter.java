@@ -64,21 +64,29 @@ public class CurrencyConverter {
 						System.out.println("The entered value was an invalid amount."); 
 						continue; 
 					} else {
-						System.out.println("The amount you entered is: " + currencyQuantity + " " + fromCode); 
+						// System.out.println("The amount you entered is: " + currencyQuantity + " " + fromCode); 
 				        break; // This loop only breaks when a user has entered a valid double value
 					}
 			    } catch (NumberFormatException nfe) {
 					System.out.println("Invalid input (nfe)");
 			    }
 				
-				System.out.println("Hello");
 				
-				/**
-				 * TODO: This is where the actual conversion functionality will go
-				 */
+				
+				// TODO: sendHttpGETRequest(fromCode, toCode, currencyQuantity);
+				
+				System.out.println("Thank you for using the curency converter."); 
 				
 			}
 			
 		}
 	}
+	
+	
+	
+	private static void sendHttpGETRequest(String fromCode, String toCode, double currencyQuantity) {
+		
+	}
+	
+	
 }
