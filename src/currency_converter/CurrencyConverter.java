@@ -69,7 +69,13 @@ public class CurrencyConverter {
 					}
 			    } catch (NumberFormatException nfe) {
 					System.out.println("Invalid input (nfe)");
-			    }		
+			    }
+				
+				
+				/**
+				 * TODO: This is where the actual conversion functionality will go
+				 */
+				
 			}
 			
 		}
