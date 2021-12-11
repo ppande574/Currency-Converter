@@ -2,7 +2,9 @@ package currency_converter;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -15,10 +17,9 @@ import java.util.Scanner;
 public class FileParser {
 	
 
-	public static String parseFile() {
+	public static HashMap<Integer, String> parseFile() {
 				
 		HashMap<Integer, String> currencyCodes = new HashMap<Integer, String>(); 
-		
 		File f = new File("Data/topCurrencies.csv"); 
 		Scanner sc; 
 		
@@ -41,19 +42,10 @@ public class FileParser {
 				// Storing parsed data in HashMap: 
 				
 				currencyCodes.put(currencyRank, currencyTag); 
-				
 			}
 		}
 		
 		sc.close();
-		
-		return null;
-		
-		
-		
+		return currencyCodes; 
 	}
-	
-
-	
 }
-	
