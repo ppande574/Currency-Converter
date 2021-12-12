@@ -70,23 +70,13 @@ public class CurrencyConverter {
 			    } catch (NumberFormatException nfe) {
 					System.out.println("Invalid input (nfe)");
 			    }
-				
-				
-				
-				// TODO: sendHttpGETRequest(fromCode, toCode, currencyQuantity);
-				
-				System.out.println("Thank you for using the curency converter."); 
-				
 			}
 			
 		}
-	}
-	
-	
-	
-	private static void sendHttpGETRequest(String fromCode, String toCode, double currencyQuantity) {
-		
-	}
-	
-	
+	}	
 }
+	
+
+		
+
+
