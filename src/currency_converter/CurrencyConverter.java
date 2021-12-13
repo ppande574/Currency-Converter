@@ -1,5 +1,6 @@
 package currency_converter;
 
+import java.net.MalformedURLException;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -12,6 +13,14 @@ public class CurrencyConverter {
 		
 		double amount; 
 		Scanner sc = new Scanner(System.in);
+		
+		try {
+			CurrencyCodeAPIProcessor.sendHttpGetRequest();
+		} catch (MalformedURLException e) {
+			System.out.println("The URL request failed");
+			e.printStackTrace();
+			System.exit(1);
+		}
 		
 		System.out.println("Welcome to the currency converter. (This application is currently in its development phase.)\n"); 
 		
