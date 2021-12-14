@@ -7,6 +7,17 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Scanner;
 
+/**
+ * 
+ * @author Pratik Pande
+ * 
+ * This class contains the main functinality of the currency converter application through the implemenation
+ * of several supportive classes. It is currently hosts text-based interaction only, which will be updated to
+ * support a GUI in the future.
+ *
+ */
+
+
 public class CurrencyConverter {
 	
 

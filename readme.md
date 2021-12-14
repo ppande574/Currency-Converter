@@ -8,6 +8,7 @@ This repository is hosted at:
 https://github.com/ppande574/Currency-Converter
 
 This application is currently being built to support a text-based user interface. 
-After that is implemented, GUI functionality will replace it.
+In the future, GUI functionality will replace it.
+
 
 Currently updating user-input functionality. 

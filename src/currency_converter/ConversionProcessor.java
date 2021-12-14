@@ -11,6 +11,7 @@ package currency_converter;
 
 public class ConversionProcessor {
 
-	
+	// TODO: Implement API connnection functionality, 
+	// and store currency exchange rates in some form 
 	
 }

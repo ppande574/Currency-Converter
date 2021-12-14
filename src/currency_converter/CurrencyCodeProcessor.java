@@ -28,7 +28,6 @@ public class CurrencyCodeProcessor {
 		String line; 
 		StringBuffer responseContent = new StringBuffer(); 
 		
-		
 		try {
 			URL url = new URL("https://openexchangerates.org/api/currencies.json"); 
 			connection = (HttpURLConnection) url.openConnection(); 
@@ -62,7 +61,7 @@ public class CurrencyCodeProcessor {
 				reader.close(); 
 			}
 			
-			System.out.println(responseContent); 
+			// System.out.println(responseContent); 
 			
 		} catch(MalformedURLException mue) {
 			mue.printStackTrace(); 
@@ -71,15 +70,13 @@ public class CurrencyCodeProcessor {
 		} finally {
 			connection.disconnect(); // Closing connection at the end
 		}
-		
 	}
-	
 	
 	public static HashMap<Integer, String> parseJson() {
 		HashMap<Integer, String> result = new HashMap<Integer, String>(); 
 		
+		// TODO: 
 		
 		return result; 
 	}
-	
 }
