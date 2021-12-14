@@ -1,26 +1,26 @@
 package currency_converter;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class CurrencyConverter {
+	
 
 	public static void main(String[] args) {
 		
+
 		String fromCode; 
 		String toCode; 
 		
 		double amount; 
 		Scanner sc = new Scanner(System.in);
 		
-		try {
-			CurrencyCodeAPIProcessor.sendHttpGetRequest();
-		} catch (MalformedURLException e) {
-			System.out.println("The URL request failed");
-			e.printStackTrace();
-			System.exit(1);
-		}
+		// CurrencyCodeProcessor.sendHttpGetRequest();
+		
 		
 		System.out.println("Welcome to the currency converter. (This application is currently in its development phase.)\n"); 
 		
@@ -40,9 +40,9 @@ public class CurrencyConverter {
 		// System.out.println("Code is: " + fromCode); 
 		
 		HashMap<Integer, String> currencyMap = FileParser.parseFile(); // Using the File Parsing class method to retrieve HashMap
-		
+	
 		// System.out.println(currencyMap); 
-		
+	
 		if(!(currencyMap.containsValue(fromCode))) {
 			// System.out.println("The code you entered is: " + fromCode + " and it is of type: " + fromCode.getClass()); 
 			System.out.println("\nCurrency conversion is not yet supported for this currency."); 
@@ -58,11 +58,11 @@ public class CurrencyConverter {
 				System.exit(0); 
 			}
 			
-//			System.out.println("Enter the amount of funds (i.e 100.00 or 1.25) you would like to convert: "); 
-//			amount = sc.nextFloat(); 
+			System.out.println("Enter the amount of funds (i.e 100.00 or 1.25) you would like to convert: "); 
+			amount = sc.nextFloat(); 
 			
 			double currencyQuantity = 0; 
-			
+		
 			while(true) {
 				currencyQuantity = 0; 
 				System.out.println("Enter the amount of funds (i.e 100.00 or 1.25) you would like to convert: "); 
@@ -83,7 +83,7 @@ public class CurrencyConverter {
 			
 		}
 	}	
-}
+ }
 	
 
 		
