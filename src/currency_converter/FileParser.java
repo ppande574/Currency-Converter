@@ -14,6 +14,10 @@ import java.util.Scanner;
  * 
  */
 
+
+// ** This class is no longer a component of the main application. See the class "JSONParser" for 
+/// the updated parsing functionality. ** 
+
 public class FileParser {
 	
 	public static HashMap<Integer, String> parseFile() {

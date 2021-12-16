@@ -6,23 +6,23 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.Scanner;
 import java.io.InputStreamReader;
-
 import javax.net.ssl.HttpsURLConnection;
 
 /**
  * 
  * @author Pratik Pande
  * 
- * This class includes funcionality to connect to an API that returns a JSON response. 
- * The file is then parsed, and currency codes are stored for later reference. 
+ * This class serves the purpose of connecting to an API that responds with a JSON
+ * listing all globally used currencies and returns the response in the form of a string. 
  */
 
 public class CurrencyCodeProcessor {
 	
 	private static HttpURLConnection connection; 
 
-	public static void sendHttpGetRequest() {
+	public static String sendHttpGetRequest() {
 		
 		BufferedReader reader; 
 		String line; 
@@ -70,13 +70,9 @@ public class CurrencyCodeProcessor {
 		} finally {
 			connection.disconnect(); // Closing connection at the end
 		}
-	}
-	
-	public static HashMap<Integer, String> parseJson() {
-		HashMap<Integer, String> result = new HashMap<Integer, String>(); 
 		
-		// TODO: 
+		String responseStringJSON = responseContent.toString(); // Converting StringBuffer to a string
 		
-		return result; 
+		return responseStringJSON; 
 	}
 }

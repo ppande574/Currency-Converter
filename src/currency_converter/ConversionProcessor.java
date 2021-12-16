@@ -1,5 +1,11 @@
 package currency_converter;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 /**
  * 
  * @author Pratik Pande
@@ -10,8 +16,18 @@ package currency_converter;
  */
 
 public class ConversionProcessor {
-
-	// TODO: Implement API connnection functionality, 
-	// and store currency exchange rates in some form 
 	
+	private static HttpURLConnection connection; 
+	
+	// CURRENT APPLICATION ID DOES NOT SUPPORT SINGLE CURRENCY CONVERSION
+	// API FUNCTIONALITY-- NEED TO FIND ANOTHER API
+	
+	public static StringBuffer sendHttpGetRequest() {
+		
+		StringBuffer sb = new StringBuffer(); 
+		
+		// TODO: 
+		
+		return sb; 
+	}	
 }
