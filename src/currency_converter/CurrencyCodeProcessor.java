@@ -71,8 +71,8 @@ public class CurrencyCodeProcessor {
 			connection.disconnect(); // Closing connection at the end
 		}
 		
-		String responseStringJSON = responseContent.toString(); // Converting StringBuffer to a string
+		String codeStringJSON = responseContent.toString(); // Converting StringBuffer to a string
 		
-		return responseStringJSON; 
+		return codeStringJSON; 
 	}
 }

@@ -16,7 +16,7 @@ import org.codehaus.jackson.map.ObjectMapper;
  *
  */
 
-public class JSONParser {
+public class CurrencyCodeParser {
 
 	public static Map<String, String> parseCurrencyCodeJSON() {
 		HashMap<Integer, String> result = new HashMap<Integer, String>(); 

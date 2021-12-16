@@ -29,6 +29,10 @@ public class CurrencyConverter {
 	
 	public static void main(String[] args) {
 		
+		// fromCode = "USD"; 
+		
+		//ConversionProcessor.sendHttpGetRequest(); 
+		
 		CurrencyCodeProcessor.sendHttpGetRequest(); 		
 		Scanner sc = new Scanner(System.in);
 		
