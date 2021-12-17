@@ -16,7 +16,7 @@ import java.net.URL;
  *
  */
 
-public class ConversionProcessor {
+public class ExchangeRateProcessor {
 	
 	private static HttpURLConnection connection; 
 	

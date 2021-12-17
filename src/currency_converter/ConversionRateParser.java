@@ -3,22 +3,14 @@ package currency_converter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 
-/** 
- * 
- * @author Pratik Pande
- * 
- * This class parses the JSON file from an API response and stores relevant informatino 
- * to a HashMap. 
- *
- */
+public class ConversionRateParser {
 
-public class CurrencyCodeParser {
-
-	public static Map<String, String> parseCurrencyCodeJSON() {
+	public static Map<String, String> parseExchangeRateJSON() {
 		String responseContent = CurrencyCodeConnection.sendHttpGetRequest(); 
 		
 		ObjectMapper mapper = new ObjectMapper(); 
@@ -27,9 +19,9 @@ public class CurrencyCodeParser {
 		try {
 			mapObject = mapper.readValue(responseContent, Map.class);
 			
-//			 for (Map.Entry<String, String> entry : mapObject.entrySet()) {
-//				 System.out.println(entry.getKey() + "." + entry.getValue()); 
-//			 }
+			 for (Map.Entry<String, String> entry : mapObject.entrySet()) {
+				 System.out.println(entry.getKey() + "." + entry.getValue()); 
+			 }
 			 
 		} catch (JsonParseException jpe) {
 			jpe.printStackTrace();
@@ -40,5 +32,6 @@ public class CurrencyCodeParser {
 		} 
 		
 		return mapObject; 
-	}	
+	}
+	
 }

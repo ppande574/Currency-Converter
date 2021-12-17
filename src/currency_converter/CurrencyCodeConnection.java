@@ -18,7 +18,7 @@ import javax.net.ssl.HttpsURLConnection;
  * listing all globally used currencies and returns the response in the form of a string. 
  */
 
-public class CurrencyCodeProcessor {
+public class CurrencyCodeConnection {
 	
 	private static HttpURLConnection connection; 
 

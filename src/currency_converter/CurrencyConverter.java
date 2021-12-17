@@ -6,6 +6,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -19,7 +20,6 @@ import java.util.Scanner;
  *
  */
 
-
 public class CurrencyConverter {
 	
 	static String fromCode; 
@@ -28,59 +28,61 @@ public class CurrencyConverter {
 	static double amount; 
 	
 	public static void main(String[] args) {
+				
+		Map<String, String> currencyCodeMap = null;
 		
-		// fromCode = "USD"; 
+		CurrencyCodeConnection.sendHttpGetRequest(); // Establishing connection to currency code API
+		currencyCodeMap = CurrencyCodeParser.parseCurrencyCodeJSON(); // Storing contents of currency code API response (JSON) into a HashMap
 		
-		//ConversionProcessor.sendHttpGetRequest(); 
-		
-		CurrencyCodeProcessor.sendHttpGetRequest(); 		
 		Scanner sc = new Scanner(System.in);
 		
-		// CurrencyCodeProcessor.sendHttpGetRequest();
-		
-		System.out.println("Welcome to the currency converter. (This application is currently in its development phase.)\n"); 
-		System.out.println("Enter the currency code (3 letters, i.e USD) you would like to convert from: ");
-	
-		fromCode = sc.nextLine().trim().toUpperCase(); 
+		System.out.println("Welcome to the currency converter beta. (This application is currently in development)"); 
 		
 		// Checking validity of user input: 
 		
-		HashMap<Integer, String> currencyMap = FileParser.parseFile(); // Using the File Parsing class method to retrieve HashMap
-	
-		if(!(currencyMap.containsValue(fromCode))) {
-			System.out.println("\nCurrency conversion is not yet supported for this currency."); 
-			System.exit(0); 
-		} 
-		else {
-			System.out.println("Enter the currency code (3 letters, i.e USD) you would like to convert to: "); 
-			toCode = sc.nextLine().trim().toUpperCase(); 
-			
-			if(!(currencyMap.containsValue(toCode))) {
-				System.out.println("\nCurrency conversion is not yet supported for this currency."); 
-				System.exit(0); 
-			}
-			
-			System.out.println("Enter the amount of funds (i.e 100.00 or 1.25) you would like to convert: "); 
-			amount = sc.nextFloat(); 
-			
-			double currencyQuantity = 0; 
-		
-			while(true) {
-				currencyQuantity = 0; 
-				System.out.println("Enter the amount of funds (i.e 100.00 or 1.25) you would like to convert: "); 
-				try {
-					amount = Double.parseDouble(sc.next()); 
-					currencyQuantity += amount; // Using variable with higher scope to hold value so that it can be used outside of "while" loop
-					if(currencyQuantity < 0 ) {
-						System.out.println("The entered value was an invalid amount."); 
-						continue; 
-					} else {
-				        break; // This loop only breaks when a user has entered a valid double value
-					}
-			    } catch (NumberFormatException nfe) {
-					System.out.println("Invalid input (nfe)");
-			    }
+		while(true) {
+			System.out.println("Enter the 3-letter currency code (i.e USD) that you would like to convert from: "); 
+			try {
+				fromCode = sc.nextLine().trim().toUpperCase(); 
+				if(!currencyCodeMap.containsKey(fromCode)) {
+					System.out.println("That is an invalid currency, or currency conversion is not yet supported for this currency."); 
+					System.out.println("Please try again."); 
+				} else {
+					break; // This loop only breaks if the user enters a valid currency code
+				}
+			} catch (InputMismatchException ime) {
+				ime.printStackTrace();
 			}
 		}
+		
+		while(true) {
+			System.out.println("Enter the 3-letter currency code (i.e USD) that you would like to convert to: "); 
+			try {
+				toCode = sc.nextLine().trim().toUpperCase(); 
+				if(!currencyCodeMap.containsKey(toCode)) {
+					System.out.println("That is an invalid currency, or currency conversion is not yet supported for this currency."); 
+					System.out.println("Please try again."); 
+				} else {
+					break; // This loop only breaks if the user enters a valid currency code
+				}
+			} catch (InputMismatchException ime) {
+				ime.printStackTrace();
+			}
+		}
+		
+		while(true) {
+			System.out.println("Enter the amount of funds (i.e 100.00 or 1.25) you would like to convert: "); 
+			try {
+				amount = Double.parseDouble(sc.next()); 
+				if(amount < 0 ) {
+					System.out.println("The entered value was an invalid amount."); 
+					continue; 
+				} else {
+					break; // This loop only breaks when a user has entered a valid double value
+				}
+	    	} catch (NumberFormatException nfe) {
+	    			System.out.println("Invalid input (nfe)");
+	    	}
+		}	
 	}	
  }
