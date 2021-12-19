@@ -26,10 +26,6 @@ public class CurrencyCodeParser {
 		
 		try {
 			mapObject = mapper.readValue(responseContent, Map.class);
-			
-//			 for (Map.Entry<String, String> entry : mapObject.entrySet()) {
-//				 System.out.println(entry.getKey() + "." + entry.getValue()); 
-//			 }
 			 
 		} catch (JsonParseException jpe) {
 			jpe.printStackTrace();

@@ -20,7 +20,7 @@ import java.util.Scanner;
  *
  */
 
-public class CurrencyConverter {
+public class CurrencyConverterMain {
 	
 	static String fromCode; 
 	static String toCode; 
@@ -55,6 +55,9 @@ public class CurrencyConverter {
 			}
 		}
 		
+		String responseContent = ExchangeRateConnection.sendHttpGetRequest(); 
+		ExchangeRateParser.parseExchangeRateJSON(responseContent); 
+		
 		while(true) {
 			System.out.println("Enter the 3-letter currency code (i.e USD) that you would like to convert to: "); 
 			try {
@@ -70,6 +73,7 @@ public class CurrencyConverter {
 			}
 		}
 		
+		
 		while(true) {
 			System.out.println("Enter the amount of funds (i.e 100.00 or 1.25) you would like to convert: "); 
 			try {
@@ -83,6 +87,6 @@ public class CurrencyConverter {
 	    	} catch (NumberFormatException nfe) {
 	    			System.out.println("Invalid input (nfe)");
 	    	}
-		}	
+		}
 	}	
  }

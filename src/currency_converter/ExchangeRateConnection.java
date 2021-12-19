@@ -16,7 +16,7 @@ import java.net.URL;
  *
  */
 
-public class ExchangeRateProcessor {
+public class ExchangeRateConnection {
 	
 	private static HttpURLConnection connection; 
 	
@@ -29,7 +29,7 @@ public class ExchangeRateProcessor {
 		String apiKey = "96a912e0-5eab-11ec-b544-55495b68723e"; // 50000/month - 4500/hr - Renews 01/16/2022
 		
 		try {
-			URL url = new URL("https://freecurrencyapi.net/api/v2/latest?apikey=" + apiKey + "&base_currency=" + CurrencyConverter.fromCode);
+			URL url = new URL("https://freecurrencyapi.net/api/v2/latest?apikey=" + apiKey + "&base_currency=" + CurrencyConverterMain.fromCode);
 			connection = (HttpURLConnection) url.openConnection(); 
 			
 			// Request Setup: 
@@ -60,7 +60,7 @@ public class ExchangeRateProcessor {
 				}
 				reader.close(); 
 			}
-			System.out.println(responseContent); 
+			//System.out.println(responseContent); 
 			
 		} catch (MalformedURLException mue) {
 			// TODO Auto-generated catch block
