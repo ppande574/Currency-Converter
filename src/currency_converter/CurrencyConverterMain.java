@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
+import java.text.DecimalFormat;
 
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
@@ -94,7 +95,9 @@ public class CurrencyConverterMain {
 		double exchangeRate = mapObject.get(toCode); 
 		double funds = exchangeRate * amount; 
 		
-		System.out.println(fromCode + " " + amount + " is " + toCode + " " + funds); 
+		DecimalFormat df = new DecimalFormat("###.###"); 
+		
+		System.out.println(fromCode + " " + df.format(amount) + " is " + toCode + " " + df.format(funds)); 
 		System.exit(0);
 	}
  }
