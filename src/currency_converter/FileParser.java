@@ -31,7 +31,6 @@ public class FileParser {
 		} catch (FileNotFoundException fnfe) {
 			throw new RuntimeException(fnfe); 
 		} 
-		
 		sc.nextLine(); 
 		while(sc.hasNext()) {
 			String line = sc.nextLine(); 
@@ -47,7 +46,6 @@ public class FileParser {
 				currencyCodes.put(currencyRank, currencyTag); 
 			}
 		}
-		
 		sc.close();
 		return currencyCodes; 
 	}

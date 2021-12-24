@@ -16,11 +16,11 @@ import org.codehaus.jackson.map.ObjectMapper;
  *
  */
 
-public class CurrencyCodeParser {
+public class JSONToMap {
 
 	public static Map<String, String> parseCurrencyCodeJSON() {
-		String responseContent = CurrencyCodeConnection.sendHttpGetRequest(); 
 		
+		String responseContent = CurrencyCodeConnection.sendHttpGetRequest(); 
 		ObjectMapper mapper = new ObjectMapper(); 
 		Map<String, String> mapObject = null; 
 		
@@ -34,7 +34,6 @@ public class CurrencyCodeParser {
 		} catch (IOException ioe) {
 			ioe.printStackTrace();
 		} 
-		
 		return mapObject; 
 	}	
 }

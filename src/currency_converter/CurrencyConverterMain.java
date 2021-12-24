@@ -5,10 +5,15 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
+
+import org.codehaus.jackson.JsonParseException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
 
 /**
  * 
@@ -24,7 +29,6 @@ public class CurrencyConverterMain {
 	
 	static String fromCode; 
 	static String toCode; 
-	
 	static double amount; 
 	
 	public static void main(String[] args) {
@@ -32,10 +36,9 @@ public class CurrencyConverterMain {
 		Map<String, String> currencyCodeMap = null;
 		
 		CurrencyCodeConnection.sendHttpGetRequest(); // Establishing connection to currency code API
-		currencyCodeMap = CurrencyCodeParser.parseCurrencyCodeJSON(); // Storing contents of currency code API response (JSON) into a HashMap
+		currencyCodeMap = JSONToMap.parseCurrencyCodeJSON(); // Storing contents of currency code API response (JSON) into a HashMap
 		
 		Scanner sc = new Scanner(System.in);
-		
 		System.out.println("Welcome to the currency converter beta. (This application is currently in development)"); 
 		
 		// Checking validity of user input: 
@@ -55,9 +58,6 @@ public class CurrencyConverterMain {
 			}
 		}
 		
-		String responseContent = ExchangeRateConnection.sendHttpGetRequest(); 
-		ExchangeRateParser.parseExchangeRateJSON(responseContent); 
-		
 		while(true) {
 			System.out.println("Enter the 3-letter currency code (i.e USD) that you would like to convert to: "); 
 			try {
@@ -73,7 +73,6 @@ public class CurrencyConverterMain {
 			}
 		}
 		
-		
 		while(true) {
 			System.out.println("Enter the amount of funds (i.e 100.00 or 1.25) you would like to convert: "); 
 			try {
@@ -88,5 +87,14 @@ public class CurrencyConverterMain {
 	    			System.out.println("Invalid input (nfe)");
 	    	}
 		}
-	}	
+		
+		String responseContent = ExchangeRateConnection.sendHttpGetRequest(); 
+		Map<String, Double> mapObject = ExchangeRateParser.parseExchangeRateJSON(responseContent); 
+				
+		double exchangeRate = mapObject.get(toCode); 
+		double funds = exchangeRate * amount; 
+		
+		System.out.println(fromCode + " " + amount + " is " + toCode + " " + funds); 
+		System.exit(0);
+	}
  }

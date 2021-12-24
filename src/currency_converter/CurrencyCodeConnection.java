@@ -16,6 +16,7 @@ import javax.net.ssl.HttpsURLConnection;
  * 
  * This class serves the purpose of connecting to an API that responds with a JSON
  * listing all globally used currencies and returns the response in the form of a string. 
+ * 
  */
 
 public class CurrencyCodeConnection {
@@ -39,7 +40,6 @@ public class CurrencyCodeConnection {
 			connection.setReadTimeout(7000); 
 			
 			int status = connection.getResponseCode(); 
-			//System.out.println("Response code is: " + status); 
 			
 			// Handling unsuccessful status: 
 			
@@ -61,8 +61,6 @@ public class CurrencyCodeConnection {
 				reader.close(); 
 			}
 			
-			// System.out.println(responseContent); 
-			
 		} catch(MalformedURLException mue) {
 			mue.printStackTrace(); 
 		} catch (IOException ioe) {
@@ -72,7 +70,6 @@ public class CurrencyCodeConnection {
 		}
 		
 		String codeStringJSON = responseContent.toString(); // Converting StringBuffer to a string
-		
 		return codeStringJSON; 
 	}
 }

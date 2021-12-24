@@ -26,7 +26,7 @@ public class ExchangeRateConnection {
 		String line = null; 
 		StringBuffer responseContent = new StringBuffer(); 
 		
-		String apiKey = "96a912e0-5eab-11ec-b544-55495b68723e"; // 50000/month - 4500/hr - Renews 01/16/2022
+		String apiKey = "96a912e0-5eab-11ec-b544-55495b68723e"; // 50000/month -- 4500/hr -- Renews 01/16/2022
 		
 		try {
 			URL url = new URL("https://freecurrencyapi.net/api/v2/latest?apikey=" + apiKey + "&base_currency=" + CurrencyConverterMain.fromCode);
@@ -39,7 +39,6 @@ public class ExchangeRateConnection {
 			connection.setReadTimeout(7000); 
 			
 			int status = connection.getResponseCode(); 
-			// System.out.println("Response Code is: " + status); 
 			
 			// Handling unsuccessful status: 
 			
@@ -60,17 +59,13 @@ public class ExchangeRateConnection {
 				}
 				reader.close(); 
 			}
-			//System.out.println(responseContent); 
-			
 		} catch (MalformedURLException mue) {
-			// TODO Auto-generated catch block
 			mue.printStackTrace();
 		} catch (IOException ioe) {
 			ioe.printStackTrace(); 
 		} finally {
 			connection.disconnect(); 
 		}
-		
 		String conversionStringJSON = responseContent.toString(); 
 		return conversionStringJSON; 
 	}	

@@ -14,4 +14,4 @@ This application utilizes two API's:
   - The first API responds with a JSON containing the currency codes for all currencies that are currently in use globally
   - The second API responds with a JSON containing a specific conversion value given two currencies
 
-Last Update: December 16, 2021
+Last Update: December 21, 2021
