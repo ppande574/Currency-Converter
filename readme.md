@@ -1,5 +1,6 @@
-# Currency Converter (Text-Based Functionality Completed; GUI Functionality Implementation in Progress)
+# Currency Converter 
 ## Java-Based Application
+### (Text-Based Functionality Completed; GUI Functionality Implementation in Progress)
 
 Pratik Pande-
 ppande0221@gmail.com
