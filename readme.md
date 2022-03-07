@@ -16,3 +16,5 @@ This application utilizes two API's:
   - The second API responds with a JSON containing a specific conversion value given two currencies
 
 Text-Based Implementation Completed 12/23/2021
+
+(Currency Conversion API allows 300 requests per month. For more information please visit: https://currencyapi.com/)
